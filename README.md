@@ -1,5 +1,5 @@
 # Furr
-Furr is the social network for the furry community—a place to share your fursona, your art, and your fursuits, connect with like-minded people, and find your pack.
+Furr is the social network for the furry community: a place to share your fursona, your art, and your fursuits, connect with like-minded people, and find your pack.
 
 
 🐾 Your profile and fursonas
