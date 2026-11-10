@@ -44,7 +44,7 @@
 <article id="es" lang="es">
 <p class="intro">Furr es la red social de la comunidad furry: un lugar para compartir tu fursona, tu arte y tus fursuits, conocer gente con tus mismos gustos y encontrar tu manada.</p>
 <h1>Política de privacidad</h1>
-<p>Última actualización: 16 de octubre de 2026</p>
+<p>Última actualización: 10 de noviembre de 2026</p>
 <p>Esta política explica qué datos personales trata Furr, para qué, durante cuánto tiempo y qué derechos tienes. Cumple el Reglamento General de Protección de Datos (RGPD, Reglamento UE 2016/679) y la Ley Orgánica 3/2018 de Protección de Datos y garantía de los derechos digitales (LOPDGDD).</p>
 <h2>1. Responsable</h2>
 <ul>
@@ -60,6 +60,9 @@
 <p><strong>Al entrar con Google</strong></p>
 <ul>
 <li>Tu email, tu identificador de Google y, si Google lo envía, tu nombre y foto de Google. Usamos el email y el identificador para tu cuenta. <strong>No usamos tu contraseña de Google: nunca la vemos.</strong>
+</li></ul>
+<p><strong>Al crear la cuenta con correo y contraseña</strong></p>
+<ul><li>Tu email y tu contraseña. La contraseña <strong>no se guarda tal cual</strong>: se guarda transformada con un algoritmo seguro (bcrypt) que no se puede revertir. Nadie, ni el equipo de Furr, puede saber cuál es; el servidor solo comprueba si la que escribes coincide.
 </li></ul>
 <p><strong>Al registrarte</strong></p>
 <ul>
@@ -157,7 +160,7 @@
 <p>Para evitar abusos (intentar localizar a alguien moviendo tu ubicación), solo se puede cambiar de sitio 30 veces al día.</p>
 </li></ul>
 </li>
-<li><strong>Tus mensajes privados</strong> solo los ven las personas de esa conversación. Las fotos y GIF de los chats se guardan en un almacén <strong>privado</strong>: solo los miembros del chat pueden abrirlos, con direcciones temporales que caducan en una hora. Los mensajes no están cifrados de extremo a extremo: técnicamente se guardan en nuestro servidor. Nadie del equipo los lee. Si alguien de la conversación <strong>denuncia un mensaje</strong>, el equipo de moderación ve <strong>solo una copia de ese mensaje</strong> (y su imagen, si la tiene), nunca el resto de la conversación, salvo obligación legal.
+<li><strong>Tus mensajes privados</strong> solo los ven las personas de esa conversación. Las fotos y GIF de los chats se guardan en un almacén <strong>privado</strong>: solo los miembros del chat pueden abrirlos, con direcciones temporales que caducan en una hora. Los mensajes viajan y se guardan cifrados, pero <strong>no tienen cifrado de extremo a extremo</strong> (como WhatsApp o Signal): se guardan en nuestro servidor, así que técnicamente quien lo administra podría acceder a ellos. <strong>El equipo de Furr no lee tus mensajes</strong>: solo accede a ellos para revisar denuncias. Si alguien de la conversación <strong>denuncia un mensaje</strong>, el equipo de moderación ve <strong>solo una copia de ese mensaje</strong> (y su imagen, si la tiene), nunca el resto de la conversación, salvo obligación legal.
 </li>
 <li>Los <strong>mensajes de voz</strong> se guardan en el mismo almacén <strong>privado</strong> que las fotos del chat y solo pueden escucharlos las personas de esa conversación. Solo se graba cuando tú pulsas el micrófono y das permiso; la app no usa el micrófono para nada más.
 </li>
@@ -198,7 +201,7 @@
 </li>
 <li><strong>Historias</strong>: dejan de verse a las 24 horas y se borran del servidor, con su foto o vídeo, en el día siguiente. Puedes borrarlas antes tú.
 </li>
-<li><strong>Mensajes</strong>: "Eliminar conversación" solo la quita para ti; las demás personas siguen viéndola. Si borras un mensaje tuyo, se borra para todos junto con su foto. Si eliminas tu cuenta, se borran todos tus mensajes y fotos de chat.
+<li><strong>Mensajes</strong>: "Borrar chat (solo para ti)" solo lo quita para ti; las demás personas siguen viéndolo. Si borras un mensaje tuyo, se borra para todos junto con su foto. Si eliminas tu cuenta, se borran todos tus mensajes y fotos de chat.
 </li>
 <li>Las <strong>notificaciones</strong> se borran solas a los <strong>90 días</strong> (y puedes borrarlas tú cuando quieras).
 </li>
@@ -227,9 +230,16 @@
 <li>Si eres madre, padre o tutor y crees que un menor ha creado una cuenta, escríbenos a <a href="mailto:trabajoericsanchezblanco@gmail.com">trabajoericsanchezblanco@gmail.com</a>.
 </li></ul>
 <h2>10. Seguridad</h2>
-<p>Todas las comunicaciones van cifradas (HTTPS). La base de datos aplica reglas de seguridad por usuario: nadie puede leer tus datos privados ni modificar los de otra persona. No guardamos contraseñas porque el acceso se hace con Google.</p>
+<ul>
+<li><strong>Cifrado en tránsito:</strong> todo lo que viaja entre la app y nuestros servidores va cifrado (HTTPS/TLS). Nadie en tu wifi o tu operadora puede leerlo.</li>
+<li><strong>Cifrado en reposo:</strong> la base de datos (Supabase) y los archivos (Cloudflare R2) se guardan en discos cifrados (AES-256).</li>
+<li><strong>Contraseñas:</strong> si creas la cuenta con correo, tu contraseña se guarda transformada con bcrypt y no se puede recuperar ni leer. Si entras con Google, no la vemos nunca.</li>
+<li><strong>Fotos privadas:</strong> las fotos, vídeos y audios de los chats y de las publicaciones «solo seguidores» se guardan en un almacén privado y solo se abren con direcciones temporales para quien tiene permiso.</li>
+<li><strong>Reglas de acceso:</strong> la base de datos aplica reglas de seguridad por usuario: nadie puede leer tus datos privados ni modificar los de otra persona. También limitamos las acciones repetidas para evitar spam y abusos.</li>
+<li><strong>Lo que no tenemos:</strong> los mensajes privados <strong>no tienen cifrado de extremo a extremo</strong>. El equipo de Furr solo accede a ellos para revisar denuncias o si la ley lo exige.</li>
+</ul>
 <h2>11. Almacenamiento en tu móvil</h2>
-<p>Furr guarda en tu móvil la información necesaria para mantener tu sesión y tus preferencias (por ejemplo, el modo invitado o el idioma). Es imprescindible para que la app funcione. <strong>No usamos cookies de publicidad ni herramientas de seguimiento.</strong></p>
+<p>Furr guarda en tu móvil la información necesaria para mantener tu sesión y tus preferencias (por ejemplo, el modo invitado o el idioma). Es imprescindible para que la app funcione. Aparte de lo que usa Google AdMob para los anuncios (explicado en el apartado 5), <strong>no usamos herramientas de seguimiento ni de analítica</strong>.</p>
 <h2>12. Cambios en esta política</h2>
 <p>Si cambiamos esta política de forma importante te avisaremos en la app.</p>
 <h2 id="eliminar-cuenta">Eliminar tu cuenta</h2>
@@ -243,7 +253,7 @@
 <article id="en" lang="en" hidden>
 <p class="intro">Furr is the social network for the furry community: a place to share your fursona, your art, and your fursuits, meet people with similar interests, and find your pack.</p>
 <h1>Privacy policy</h1>
-<p>Last updated: 16 October 2026</p>
+<p>Last updated: 10 November 2026</p>
 <p>This is an English translation provided for convenience. <strong>If there is any difference between versions, the Spanish version prevails.</strong></p>
 <p>This policy explains what personal data Furr processes, what for, for how long and what rights you have. It complies with the General Data Protection Regulation (GDPR, Regulation (EU) 2016/679) and Spanish Organic Law 3/2018 on Data Protection and Guarantee of Digital Rights (LOPDGDD).</p>
 <h2>1. Controller</h2>
@@ -260,6 +270,9 @@
 <p><strong>When you sign in with Google</strong></p>
 <ul>
 <li>Your email, your Google identifier and, if Google sends them, your Google name and photo. We use the email and the identifier for your account. <strong>We don't use your Google password: we never see it.</strong>
+</li></ul>
+<p><strong>When you create an account with email and password</strong></p>
+<ul><li>Your email and your password. The password is <strong>not stored as is</strong>: it's stored transformed with a secure algorithm (bcrypt) that can't be reversed. Nobody, not even the Furr team, can know it; the server only checks whether the one you type matches.
 </li></ul>
 <p><strong>When you sign up</strong></p>
 <ul>
@@ -357,7 +370,7 @@
 <p>To prevent abuse (trying to locate someone by moving your location), you can only change place 30 times a day.</p>
 </li></ul>
 </li>
-<li><strong>Your private messages</strong> can only be seen by the people in that conversation. Chat photos and GIFs are stored in <strong>private</strong> storage: only chat members can open them, with temporary addresses that expire after one hour. Messages are not end-to-end encrypted: technically they're stored on our server. Nobody on the team reads them. If someone in the conversation <strong>reports a message</strong>, the moderation team sees <strong>only a copy of that message</strong> (and its image, if it has one), never the rest of the conversation, unless legally required.
+<li><strong>Your private messages</strong> can only be seen by the people in that conversation. Chat photos and GIFs are stored in <strong>private</strong> storage: only chat members can open them, with temporary addresses that expire after one hour. Messages are encrypted in transit and at rest, but they are <strong>not end-to-end encrypted</strong> (like WhatsApp or Signal): they're stored on our server, so technically whoever runs it could access them. <strong>The Furr team doesn't read your messages</strong>: we only access them to review reports. If someone in the conversation <strong>reports a message</strong>, the moderation team sees <strong>only a copy of that message</strong> (and its image, if it has one), never the rest of the conversation, unless legally required.
 </li>
 <li><strong>Voice messages</strong> are stored in the same <strong>private</strong> storage as chat photos and can only be played by the people in that conversation. Audio is only recorded when you tap the microphone and grant permission; the app doesn't use the microphone for anything else.
 </li>
@@ -398,7 +411,7 @@
 </li>
 <li><strong>Stories</strong>: they stop being visible after 24 hours and are deleted from the server, with their photo or video, within the following day. You can delete them earlier yourself.
 </li>
-<li><strong>Messages</strong>: "Delete conversation" only removes it for you; the other people can still see it. If you delete one of your messages, it's deleted for everyone along with its photo. If you delete your account, all your messages and chat photos are deleted.
+<li><strong>Messages</strong>: "Clear chat (just for you)" only removes it for you; the other people can still see it. If you delete one of your messages, it's deleted for everyone along with its photo. If you delete your account, all your messages and chat photos are deleted.
 </li>
 <li><strong>Notifications</strong> are deleted automatically after <strong>90 days</strong> (and you can delete them yourself whenever you want).
 </li>
@@ -427,9 +440,16 @@
 <li>If you're a parent or guardian and think a minor has created an account, write to us at <a href="mailto:trabajoericsanchezblanco@gmail.com">trabajoericsanchezblanco@gmail.com</a>.
 </li></ul>
 <h2>10. Security</h2>
-<p>All communications are encrypted (HTTPS). The database applies per-user security rules: nobody can read your private data or change someone else's. We don't store passwords because sign-in is done with Google.</p>
+<ul>
+<li><strong>Encryption in transit:</strong> everything between the app and our servers is encrypted (HTTPS/TLS). Nobody on your wifi or mobile network can read it.</li>
+<li><strong>Encryption at rest:</strong> the database (Supabase) and files (Cloudflare R2) are stored on encrypted disks (AES-256).</li>
+<li><strong>Passwords:</strong> if you create your account with email, your password is stored transformed with bcrypt and can't be recovered or read. If you sign in with Google, we never see it.</li>
+<li><strong>Private photos:</strong> photos, videos and audio from chats and followers-only posts are kept in private storage and only open through temporary links for people who are allowed to see them.</li>
+<li><strong>Access rules:</strong> the database applies per-user security rules: nobody can read your private data or change someone else's. We also limit repeated actions to prevent spam and abuse.</li>
+<li><strong>What we don't have:</strong> private messages are <strong>not end-to-end encrypted</strong>. The Furr team only accesses them to review reports or when the law requires it.</li>
+</ul>
 <h2>11. Storage on your phone</h2>
-<p>Furr stores on your phone the information needed to keep your session and your preferences (for example, guest mode or the app language). It's essential for the app to work. <strong>We don't use advertising cookies or tracking tools.</strong></p>
+<p>Furr stores on your phone the information needed to keep your session and your preferences (for example, guest mode or the app language). It's essential for the app to work. Apart from what Google AdMob uses for ads (explained in section 5), <strong>we don't use tracking or analytics tools</strong>.</p>
 <h2>12. Changes to this policy</h2>
 <p>If we change this policy in an important way, we will let you know in the app.</p>
 <h2 id="delete-account">Delete your account</h2>
